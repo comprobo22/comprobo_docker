@@ -26,7 +26,7 @@ RUN apt-get install -y python3-pip hping3
 RUN pip3 install opencv-python
 RUN setcap cap_net_raw+ep /usr/sbin/hping3
 
-RUN /bin/bash -c "source /opt/ros/foxy/setup.bash && mkdir -p /root/ros2_ws/src && cd /root/ros2_ws/src && git clone https://github.com/comprobo22/neato_node2 && git clone https://github.com/comprobo22/neato2_interfaces && git clone -b foxy-devel https://github.com/ROBOTIS-GIT/turtlebot3_simulations.git && git clone https://github.com/clydemcqueen/gscam2 && git clone https://github.com/ptrmu/ros2_shared.git -b master && cd /root/ros2_ws && colcon build --symlink-install"
+RUN /bin/bash -c "source /opt/ros/foxy/setup.bash && mkdir -p /root/ros2_ws/src && cd /root/ros2_ws/src && git clone https://github.com/comprobo22/neato_packages && git clone -b foxy-devel https://github.com/ROBOTIS-GIT/turtlebot3_simulations.git && git clone https://github.com/clydemcqueen/gscam2 && git clone https://github.com/ptrmu/ros2_shared.git -b master && cd /root/ros2_ws && colcon build --symlink-install"
 
 RUN /bin/bash -c "echo \"source /root/ros2_ws/install/setup.bash\" >> /root/.bashrc"
 CMD ["/bin/bash"]
