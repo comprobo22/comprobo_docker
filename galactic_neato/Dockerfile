@@ -1,13 +1,8 @@
 from osrf/ros:galactic-desktop
 ENV TURTLEBOT3_MODEL=waffle_pi
 RUN apt-get update && apt-get install -y ros-galactic-gazebo-ros-pkgs \
-	ros-galactic-turtlebot3-msgs \
-	ros-galactic-turtlebot3 \
-	ros-galactic-turtlebot3-gazebo \
-	ros-galactic-dynamixel-sdk \
 	ros-galactic-nav2-bringup \
 	ros-galactic-navigation2 \
-	ros-galactic-camera-calibration-parsers \
 	ros-galactic-camera-info-manager \
 	ros-galactic-cartographer-ros \
 	ros-galactic-cartographer \
@@ -22,9 +17,10 @@ RUN apt-get update && apt-get install -y ros-galactic-gazebo-ros-pkgs \
 	gstreamer1.0-gtk3 \
 	gstreamer1.0-qt5 \
 	gstreamer1.0-pulseaudio \
-	ros-galactic-gscam
+	ros-galactic-gscam \
+	python3-pip \
+	hping3
 
-RUN apt-get install -y python3-pip hping3
 RUN pip3 install opencv-python
 RUN setcap cap_net_raw+ep /usr/sbin/hping3
 

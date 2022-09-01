@@ -1,12 +1,9 @@
 from osrf/ros:foxy-desktop
 ENV TURTLEBOT3_MODEL=waffle_pi
 RUN apt-get update && apt-get install -y ros-foxy-gazebo-ros-pkgs \
-	ros-foxy-turtlebot3-msgs \
-	ros-foxy-turtlebot3 \
-	ros-foxy-turtlebot3-gazebo \
-	ros-foxy-dynamixel-sdk \
 	ros-foxy-nav2-bringup \
 	ros-foxy-navigation2 \
+	ros-foxy-camera-info-manager \
 	ros-foxy-cartographer-ros \
 	ros-foxy-cartographer \
 	gstreamer1.0-plugins-good \
@@ -20,9 +17,10 @@ RUN apt-get update && apt-get install -y ros-foxy-gazebo-ros-pkgs \
 	gstreamer1.0-gtk3 \
 	gstreamer1.0-qt5 \
 	gstreamer1.0-pulseaudio \
-        ros-foxy-gscam
+        ros-foxy-gscam \
+	python3-pip \
+	hping3
 
-RUN apt-get install -y python3-pip hping3
 RUN pip3 install opencv-python
 RUN setcap cap_net_raw+ep /usr/sbin/hping3
 

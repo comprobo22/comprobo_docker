@@ -1,10 +1,6 @@
 from osrf/ros:humble-desktop
 ENV TURTLEBOT3_MODEL=waffle_pi
 RUN apt-get update && apt-get install -y ros-humble-gazebo-ros-pkgs \
-	ros-humble-turtlebot3-msgs \
-	ros-humble-turtlebot3-gazebo \
-	ros-humble-turtlebot3 \
-	ros-humble-dynamixel-sdk \
 	ros-humble-nav2-bringup \
 	ros-humble-navigation2 \
 	ros-humble-camera-calibration-parsers \
@@ -22,9 +18,10 @@ RUN apt-get update && apt-get install -y ros-humble-gazebo-ros-pkgs \
 	gstreamer1.0-gtk3 \
 	gstreamer1.0-qt5 \
 	gstreamer1.0-pulseaudio \
-	ros-humble-gscam
+	ros-humble-gscam \
+	python3-pip \
+	hping3
 
-RUN apt-get install -y python3-pip hping3
 RUN pip3 install opencv-python
 RUN setcap cap_net_raw+ep /usr/sbin/hping3
 
